@@ -13,12 +13,23 @@ angular.module('app.services').factory('dataService', function ($http, $q) {
                 _sort: 'amount',
                 _order: 'DESC'
             }
-        }).success(function(response){
-            callbackFunction(response);
+        }).success(function(data){
+            callbackFunction(data);
         }).error(function(){
             alert("error"); // I don't like alerts but for the test...
             return null ;
         });
     };
+
+    dataService.getPaymentsWithPromise = function() {
+        return $http({
+            method: 'GET',
+            url: '/payments',
+            params: {
+                merchant: 'Ginger'
+            }
+        });
+    };
+
     return dataService;
 });
