@@ -1,0 +1,37 @@
+<header>
+    <h1>Assignment</h1>
+</header>
+
+<main data-ng-controller="mainController">
+
+    <aside>
+        <button data-ng-click="callback()">Callback</button>
+        <button>Promise</button>
+        <button>Filter Payment-Method</button>
+        <button>Add payment</button>
+    </aside>
+
+    <section>
+        <table data-ng-if="payments.length > 1">
+            <tr>
+                <th>id</th>
+                <th>method</th>
+                <th>amount</th>
+                <th>currency</th>
+                <th>created</th>
+                <th>status</th>
+                <th>merchant</th>
+            </tr>
+            <tr data-ng-repeat="payment in payments">
+                <th>{{payment.id}}</th>
+                <th>{{payment.method}}</th>
+                <th>{{payment.amount}}</th>
+                <th>{{payment.currency}}</th>
+                <th>{{payment.created}}</th>
+                <th>{{payment.status}}</th>
+                <th>{{payment.merchant}}</th>
+            </tr>
+        </table>
+    </section>
+
+</main>

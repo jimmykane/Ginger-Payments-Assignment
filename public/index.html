@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html data-ng-app="app" lang="en">
+<head>
+
+    <!-- Base -->
+    <base href="/">
+
+    <meta charset="UTF-8">
+    <title>Ginger Payments - Frontend Assignment</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,300,700">
+    <!--Feel free to remove the style tag-->
+    <style>
+        body{
+            font-family: Open Sans;
+        }
+        h1 {
+            text-align: center;
+        }
+        aside {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            height: 100%;
+        }
+        button {
+            margin: 5px;
+            padding: 5px;
+        }
+        main {
+            display: flex;
+            width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+    </style>
+
+    <!-- Head Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
+
+</head>
+<body>
+
+    <div data-ng-view>
+        <!-- Here gets replaced by main content -->
+    </div>
+
+    <!-- App -->
+    <script src="/app/app.js"></script>
+
+    <!-- Main module -->
+    <script src="/app/modules/main/app.main.js"></script>
+
+    <!-- App services -->
+    <script src="/app/services/app.services.js"></script>
+    <script src="/app/services/app.services.data.js"></script>
+
+    <!-- Controllers -->
+    <script src="/app/modules/main/controllers/main.js"></script>
+</body>
+</html>
