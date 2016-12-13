@@ -7,7 +7,13 @@
     <aside>
         <button data-ng-click="callback()">Callback</button>
         <button data-ng-click="promise()">Promise</button>
-        <button>Filter Payment-Method</button>
+        <label for="method">Filter payment method:</label>
+        <select class="form-control" id="method" data-ng-model="search.method">
+            <option value="">All</option>
+            <option value="ideal">IDeal</option>
+            <option value="bank-transfer">Bank Transfer</option>
+            <option value="creditcard">CreditCard</option>
+        </select>
         <button>Add payment</button>
     </aside>
 
@@ -22,7 +28,7 @@
                 <th>status</th>
                 <th>merchant</th>
             </tr>
-            <tr data-ng-repeat="payment in payments">
+            <tr data-ng-repeat="payment in payments | filter:search">
                 <th>{{payment.id}}</th>
                 <th>{{payment.method}}</th>
                 <th>{{payment.amount}}</th>
