@@ -12,26 +12,31 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,300,700">
 
     <!-- Add the classic to all Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!--Feel free to remove the style tag-->
     <style>
-        body{
+        body {
             font-family: Open Sans;
         }
+
         h1 {
             text-align: center;
         }
+
         aside {
             display: flex;
             flex-direction: column;
             width: 220px;
             height: 100%;
         }
+
         button {
             margin: 5px;
             padding: 5px;
         }
+
         main {
             display: flex;
             width: 100%;
@@ -48,21 +53,21 @@
 </head>
 <body>
 
-    <div data-ng-view>
-        <!-- Here gets replaced by main content -->
-    </div>
+<div data-ng-view>
+    <!-- Here gets replaced by main content -->
+</div>
 
-    <!-- App -->
-    <script src="/app/app.js"></script>
+<!-- App -->
+<script src="/app/app.js"></script>
 
-    <!-- Main module -->
-    <script src="/app/modules/main/app.main.js"></script>
+<!-- Main module -->
+<script src="/app/modules/main/app.main.js"></script>
 
-    <!-- App services -->
-    <script src="/app/services/app.services.js"></script>
-    <script src="/app/services/app.services.data.js"></script>
+<!-- App services -->
+<script src="/app/services/app.services.js"></script>
+<script src="/app/services/app.services.data.js"></script>
 
-    <!-- Controllers -->
-    <script src="/app/modules/main/controllers/main.js"></script>
+<!-- Controllers -->
+<script src="/app/modules/main/controllers/main.js"></script>
 </body>
 </html>

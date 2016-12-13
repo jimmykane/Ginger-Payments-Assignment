@@ -5,8 +5,11 @@
 <main data-ng-controller="mainController">
 
     <aside>
+
         <button class="btn btn-default" data-ng-click="callback()">Callback</button>
+
         <button class="btn btn-default" data-ng-click="promise()">Promise</button>
+
         <label>
             Payment Method
             <select class="form-control" data-ng-model="search.method">
@@ -16,7 +19,9 @@
                 <option value="creditcard">CreditCard</option>
             </select>
         </label>
+
         <form data-ng-submit="addPayment()">
+
             <label>
                 Payment Method
                 <select class="form-control" data-ng-model="paymentFormData.method"
@@ -47,12 +52,16 @@
                 <input type="text" required data-ng-model="paymentFormData.merchant"/>
             </label>
 
-            <button type="submit" class="btn btn-default" >Add payment</button>
+            <button type="submit" class="btn btn-default">Add payment</button>
+
         </form>
+
     </aside>
 
     <section>
+
         <table class="table-condensed table-hover table-bordered" data-ng-if="payments.length > 1">
+
             <tr>
                 <th>id</th>
                 <th>Method</th>
@@ -62,6 +71,7 @@
                 <th>Status</th>
                 <th>Merchant</th>
             </tr>
+
             <tr data-ng-repeat="payment in payments | filter:search">
                 <th>{{payment.id}}</th>
                 <th>{{payment.method}}</th>
@@ -71,7 +81,9 @@
                 <th>{{payment.status}}</th>
                 <th>{{payment.merchant}}</th>
             </tr>
+
         </table>
+
     </section>
 
 </main>
