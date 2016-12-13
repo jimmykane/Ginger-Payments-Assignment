@@ -7,25 +7,60 @@
     <aside>
         <button class="btn btn-default" data-ng-click="callback()">Callback</button>
         <button class="btn btn-default" data-ng-click="promise()">Promise</button>
-        <select class="form-control" data-ng-model="search.method" title="Payment method">
-            <option value="">All</option>
-            <option value="ideal">IDeal</option>
-            <option value="bank-transfer">Bank Transfer</option>
-            <option value="creditcard">CreditCard</option>
-        </select>
-        <button class="btn btn-default">Add payment</button>
+        <label>
+            Payment Method
+            <select class="form-control" data-ng-model="search.method">
+                <option value="">All</option>
+                <option value="ideal">IDeal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="creditcard">CreditCard</option>
+            </select>
+        </label>
+        <form data-ng-submit="addPayment()">
+            <label>
+                Payment Method
+                <select class="form-control" data-ng-model="paymentFormData.method"
+                        data-ng-init="paymentFormData.method='ideal'">
+                    <option value="ideal">IDeal</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                    <option value="creditcard">CreditCard</option>
+                </select>
+            </label>
+
+            <label>
+                Amount
+                <input type="number" required data-ng-model="paymentFormData.amount"/>
+            </label>
+
+            <label>
+                Currency
+                <select class="form-control" data-ng-model="paymentFormData.currency"
+                        data-ng-init="paymentFormData.currency='EUR'">
+                    <option value="EUR">Euro</option>
+                    <option value="USD">United States Dollar</option>
+                    <option value="GBP">British Pound</option>
+                </select>
+            </label>
+
+            <label>
+                Merchant
+                <input type="text" required data-ng-model="paymentFormData.merchant"/>
+            </label>
+
+            <button type="submit" class="btn btn-default" >Add payment</button>
+        </form>
     </aside>
 
     <section>
         <table class="table-condensed table-hover table-bordered" data-ng-if="payments.length > 1">
             <tr>
                 <th>id</th>
-                <th>method</th>
-                <th>amount</th>
-                <th>currency</th>
-                <th>created</th>
-                <th>status</th>
-                <th>merchant</th>
+                <th>Method</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Created</th>
+                <th>Status</th>
+                <th>Merchant</th>
             </tr>
             <tr data-ng-repeat="payment in payments | filter:search">
                 <th>{{payment.id}}</th>

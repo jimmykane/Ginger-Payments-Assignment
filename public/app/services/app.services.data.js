@@ -31,5 +31,18 @@ angular.module('app.services').factory('dataService', function ($http, $q) {
         });
     };
 
+    dataService.addPayment = function(data) {
+        // Inject the status cause this should happen server side I suppose
+        data.status = 'accepted';
+        // Add a timestamp (should as well happen server side)
+        data.created = new Date().toString();
+        console.log(data);
+        return $http({
+            method: 'POST',
+            url: '/payments',
+            data: data
+        });
+    };
+
     return dataService;
 });

@@ -3,6 +3,7 @@
 angular.module('app.main').controller('mainController', function ($scope, dataService) {
 
     $scope.payments = [];
+    $scope.paymentFormData = {};
 
     $scope.callback = function () {
         dataService.getPaymentsWithCallback(function (data) {
@@ -17,5 +18,12 @@ angular.module('app.main').controller('mainController', function ($scope, dataSe
             console.log(response);
             $scope.payments = response.data;
         });
-    }
+    };
+
+    $scope.addPayment = function () {
+        dataService.addPayment($scope.paymentFormData).then(function(response) {
+            console.log(response);
+            $scope.payments = response.data;
+        });
+    };
 });
