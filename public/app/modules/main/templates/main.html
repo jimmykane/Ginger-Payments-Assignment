@@ -6,60 +6,82 @@
 
     <aside>
 
-        <button class="btn btn-default" data-ng-click="callback()">Callback</button>
+        <div class="panel panel-info">
 
-        <button class="btn btn-default" data-ng-click="promise()">Promise</button>
-
-        <label>
-            Payment Method
-            <select class="form-control" data-ng-model="search.method">
-                <option value="">All</option>
-                <option value="ideal">IDeal</option>
-                <option value="bank-transfer">Bank Transfer</option>
-                <option value="creditcard">CreditCard</option>
-            </select>
-        </label>
-
-        <form data-ng-submit="addPayment()">
-
-            <div class="form-group">
-                <label for="paymentMethod">Payment Method</label>
-                <select class="form-control" id="paymentMethod" data-ng-model="paymentFormData.method"
-                        data-ng-init="paymentFormData.method='ideal'">
-                    <option value="ideal">IDeal</option>
-                    <option value="bank-transfer">Bank Transfer</option>
-                    <option value="creditcard">CreditCard</option>
-                </select>
-                <small class="form-text text-muted">Select your preferred payment method</small>
+            <div class="panel-heading">
+                <h3 class="panel-title">Check your payments</h3>
             </div>
 
-            <div class="form-group">
-                <label for="paymentAmount">Amount</label>
-                <input type="number" id="paymentAmount" required data-ng-model="paymentFormData.amount"/>
-                <small class="form-text text-muted">Amount that you would like to pay</small>
+            <div class="panel-body">
+
+                <button class="btn btn-info" data-ng-click="callback()">Callback</button>
+
+                <button class="btn btn-info" data-ng-click="promise()">Promise</button>
+
+                <div class="form-group">
+                    <label for="searchPaymentMethod">Method</label>
+                    <select class="form-control" id="searchPaymentMethod" data-ng-model="search.method">
+                        <option value="">All</option>
+                        <option value="ideal">IDeal</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                        <option value="creditcard">CreditCard</option>
+                    </select>
+                    <small class="form-text text-muted">Filter on specific payment method</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Add a payment</h3>
             </div>
 
+            <div class="panel-body">
 
-            <div class="form-group">
-                <label for="paymentCurrency">Currency</label>
-                <select class="form-control" id="paymentCurrency" data-ng-model="paymentFormData.currency"
-                        data-ng-init="paymentFormData.currency='EUR'">
-                    <option value="EUR">Euro</option>
-                    <option value="USD">United States Dollar</option>
-                    <option value="GBP">British Pound</option>
-                </select>
-                <small class="form-text text-muted">The currency that wish to pay with</small>
-            </div>
+            <form data-ng-submit="addPayment()">
 
-            <div class="form-group">
-                <label for="paymentMerchant">Merchant</label>
-                <input type="text" id="paymentMerchant" required data-ng-model="paymentFormData.merchant"/>
-                <small class="form-text text-muted">Enter the merchant for this payment</small>
-            </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select class="form-control" id="paymentMethod" data-ng-model="paymentFormData.method"
+                            data-ng-init="paymentFormData.method='ideal'">
+                        <option value="ideal">IDeal</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                        <option value="creditcard">CreditCard</option>
+                    </select>
+                    <small class="form-text text-muted">Select your preferred payment method</small>
+                </div>
 
-            <button type="submit" class="btn btn-primary">Add payment</button>
+                <div class="form-group">
+                    <label for="paymentAmount">Amount</label>
+                    <input type="number" id="paymentAmount" required data-ng-model="paymentFormData.amount"/>
+                    <small class="form-text text-muted">Amount that you would like to pay</small>
+                </div>
 
-        </form>
+
+                <div class="form-group">
+                    <label for="paymentCurrency">Currency</label>
+                    <select class="form-control" id="paymentCurrency" data-ng-model="paymentFormData.currency"
+                            data-ng-init="paymentFormData.currency='EUR'">
+                        <option value="EUR">Euro</option>
+                        <option value="USD">United States Dollar</option>
+                        <option value="GBP">British Pound</option>
+                    </select>
+                    <small class="form-text text-muted">The currency that wish to pay with</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMerchant">Merchant</label>
+                    <input type="text" id="paymentMerchant" required data-ng-model="paymentFormData.merchant"/>
+                    <small class="form-text text-muted">Enter the merchant for this payment</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add payment</button>
+
+            </form>
+
+        </div>
+    </div>
 
     </aside>
 
