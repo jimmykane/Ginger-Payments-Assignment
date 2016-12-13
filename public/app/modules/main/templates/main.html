@@ -41,27 +41,33 @@
 
             <div class="panel-body">
 
-                <table class="table-condensed table-hover" data-ng-if="payments.length > 1">
+                <h4 data-ng-if="payments.length < 1">Use the callback or promise button to see the payments</h4>
 
-                    <tr>
-                        <th>id</th>
-                        <th>Method</th>
-                        <th>Amount</th>
-                        <th>Currency</th>
-                        <th>Created</th>
-                        <th>Status</th>
-                        <th>Merchant</th>
-                    </tr>
+                <table class="table table-condensed table-hover" data-ng-if="payments.length >= 1">
 
-                    <tr data-ng-repeat="payment in payments | filter:search">
-                        <th>{{payment.id}}</th>
-                        <th>{{payment.method}}</th>
-                        <th>{{payment.amount}}</th>
-                        <th>{{payment.currency}}</th>
-                        <th>{{payment.created}}</th>
-                        <th>{{payment.status}}</th>
-                        <th>{{payment.merchant}}</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Method</th>
+                            <th>Amount</th>
+                            <th>Currency</th>
+                            <th>Created</th>
+                            <th>Status</th>
+                            <th>Merchant</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr data-ng-repeat="payment in payments | filter:search">
+                            <th scope="row">{{payment.id}}</th>
+                            <th scope="row">{{payment.method}}</th>
+                            <th scope="row">{{payment.amount}}</th>
+                            <th scope="row">{{payment.currency}}</th>
+                            <th scope="row">{{payment.created}}</th>
+                            <th scope="row">{{payment.status}}</th>
+                            <th scope="row">{{payment.merchant}}</th>
+                        </tr>
+                    </tbody>
 
                 </table>
 
