@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app.services').factory('dataService', function ($http, $q) {
+angular.module('app.services').factory('dataService', function ($http) {
 
     var dataService = {};
 
