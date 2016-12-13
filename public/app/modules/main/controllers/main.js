@@ -19,7 +19,8 @@ angular.module('app.main').controller('mainController', function ($scope, dataSe
 
     $scope.addPayment = function () {
         dataService.addPayment($scope.paymentFormData).then(function (response) {
-            $scope.payments = response.data;
+            // Reset the table
+            $scope.payments = [];
         });
     };
 });
