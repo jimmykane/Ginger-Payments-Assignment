@@ -5,9 +5,10 @@ angular.module('app.main').controller('mainController', function ($scope, dataSe
     $scope.payments = [];
 
     $scope.callback = function () {
-        dataService.getPayments().then(function(response) {
+        dataService.getPaymentsWithCallback(function (response) {
             console.log(response);
-            angular.extend($scope.payments, response.data);
+            //angular.extend($scope.payments, response);
+            $scope.payments = response;
         });
     };
 });

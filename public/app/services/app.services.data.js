@@ -4,25 +4,21 @@ angular.module('app.services').factory('dataService', function ($http, $q) {
 
     var dataService = {};
 
-    // @todo add the correct params
-    dataService.getPayments = function(limit) {
-        limit = limit || 20;
+    dataService.getPaymentsWithCallback = function(callbackFunction) {
         return $http({
             method: 'GET',
             url: '/payments',
             params: {
-                _limit: limit,
+                _limit: 20,
                 _sort: 'amount',
                 _order: 'DESC'
             }
-        }).success(function(data){
-            return data;
+        }).success(function(response){
+            callbackFunction(response);
         }).error(function(){
-            alert("error");
+            alert("error"); // I don't like alerts but for the test...
             return null ;
         });
     };
-
     return dataService;
-
 });
