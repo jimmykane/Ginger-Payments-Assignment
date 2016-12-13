@@ -39,77 +39,88 @@
 
             <div class="panel-body">
 
-            <form data-ng-submit="addPayment()">
+                <form data-ng-submit="addPayment()">
 
-                <div class="form-group">
-                    <label for="paymentMethod">Payment Method</label>
-                    <select class="form-control" id="paymentMethod" data-ng-model="paymentFormData.method"
-                            data-ng-init="paymentFormData.method='ideal'">
-                        <option value="ideal">IDeal</option>
-                        <option value="bank-transfer">Bank Transfer</option>
-                        <option value="creditcard">CreditCard</option>
-                    </select>
-                    <small class="form-text text-muted">Select your preferred payment method</small>
-                </div>
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method</label>
+                        <select class="form-control" id="paymentMethod" data-ng-model="paymentFormData.method"
+                                data-ng-init="paymentFormData.method='ideal'">
+                            <option value="ideal">IDeal</option>
+                            <option value="bank-transfer">Bank Transfer</option>
+                            <option value="creditcard">CreditCard</option>
+                        </select>
+                        <small class="form-text text-muted">Select your preferred payment method</small>
+                    </div>
 
-                <div class="form-group">
-                    <label for="paymentAmount">Amount</label>
-                    <input type="number" id="paymentAmount" required data-ng-model="paymentFormData.amount"/>
-                    <small class="form-text text-muted">Amount that you would like to pay</small>
-                </div>
+                    <div class="form-group">
+                        <label for="paymentAmount">Amount</label>
+                        <input type="number" id="paymentAmount" required data-ng-model="paymentFormData.amount"/>
+                        <small class="form-text text-muted">Amount that you would like to pay</small>
+                    </div>
 
 
-                <div class="form-group">
-                    <label for="paymentCurrency">Currency</label>
-                    <select class="form-control" id="paymentCurrency" data-ng-model="paymentFormData.currency"
-                            data-ng-init="paymentFormData.currency='EUR'">
-                        <option value="EUR">Euro</option>
-                        <option value="USD">United States Dollar</option>
-                        <option value="GBP">British Pound</option>
-                    </select>
-                    <small class="form-text text-muted">The currency that wish to pay with</small>
-                </div>
+                    <div class="form-group">
+                        <label for="paymentCurrency">Currency</label>
+                        <select class="form-control" id="paymentCurrency" data-ng-model="paymentFormData.currency"
+                                data-ng-init="paymentFormData.currency='EUR'">
+                            <option value="EUR">Euro</option>
+                            <option value="USD">United States Dollar</option>
+                            <option value="GBP">British Pound</option>
+                        </select>
+                        <small class="form-text text-muted">The currency that wish to pay with</small>
+                    </div>
 
-                <div class="form-group">
-                    <label for="paymentMerchant">Merchant</label>
-                    <input type="text" id="paymentMerchant" required data-ng-model="paymentFormData.merchant"/>
-                    <small class="form-text text-muted">Enter the merchant for this payment</small>
-                </div>
+                    <div class="form-group">
+                        <label for="paymentMerchant">Merchant</label>
+                        <input type="text" id="paymentMerchant" required data-ng-model="paymentFormData.merchant"/>
+                        <small class="form-text text-muted">Enter the merchant for this payment</small>
+                    </div>
 
-                <button type="submit" class="btn btn-primary">Add payment</button>
+                    <button type="submit" class="btn btn-primary">Add payment</button>
 
-            </form>
+                </form>
 
+            </div>
         </div>
-    </div>
 
     </aside>
 
     <section>
 
-        <table class="table-condensed table-hover table-bordered" data-ng-if="payments.length > 1">
+        <div class="panel panel-info" data-ng-if="payments.length > 1">
 
-            <tr>
-                <th>id</th>
-                <th>Method</th>
-                <th>Amount</th>
-                <th>Currency</th>
-                <th>Created</th>
-                <th>Status</th>
-                <th>Merchant</th>
-            </tr>
+            <div class="panel-heading">
+                <h3 class="panel-title">Payments</h3>
+            </div>
 
-            <tr data-ng-repeat="payment in payments | filter:search">
-                <th>{{payment.id}}</th>
-                <th>{{payment.method}}</th>
-                <th>{{payment.amount}}</th>
-                <th>{{payment.currency}}</th>
-                <th>{{payment.created}}</th>
-                <th>{{payment.status}}</th>
-                <th>{{payment.merchant}}</th>
-            </tr>
+            <div class="panel-body">
 
-        </table>
+                <table class="table-condensed table-hover">
+
+                    <tr>
+                        <th>id</th>
+                        <th>Method</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th>Merchant</th>
+                    </tr>
+
+                    <tr data-ng-repeat="payment in payments | filter:search">
+                        <th>{{payment.id}}</th>
+                        <th>{{payment.method}}</th>
+                        <th>{{payment.amount}}</th>
+                        <th>{{payment.currency}}</th>
+                        <th>{{payment.created}}</th>
+                        <th>{{payment.status}}</th>
+                        <th>{{payment.merchant}}</th>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
 
     </section>
 
