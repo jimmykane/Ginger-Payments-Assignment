@@ -5,8 +5,8 @@
 <main data-ng-controller="mainController">
 
     <aside>
-        <button data-ng-click="callback()">Callback</button>
-        <button data-ng-click="promise()">Promise</button>
+        <button class="btn btn-default" data-ng-click="callback()">Callback</button>
+        <button class="btn btn-default" data-ng-click="promise()">Promise</button>
         <label for="method">Filter payment method:</label>
         <select class="form-control" id="method" data-ng-model="search.method">
             <option value="">All</option>
@@ -14,7 +14,7 @@
             <option value="bank-transfer">Bank Transfer</option>
             <option value="creditcard">CreditCard</option>
         </select>
-        <button>Add payment</button>
+        <button class="btn btn-default">Add payment</button>
     </aside>
 
     <section>
