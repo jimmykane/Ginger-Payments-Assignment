@@ -18,17 +18,31 @@
     <!--Feel free to remove the style tag-->
     <style>
         body {
-            font-family: Open Sans;
+            font-family: Open Sans,sans-serif;
         }
 
         h1 {
             text-align: center;
         }
 
-        aside {
-            display: flex;
-            flex-direction: column;
-            width: 220px;
+        aside.left {
+            padding: 1%;
+            order:1;
+            flex-basis:100%;
+            height: 100%;
+        }
+
+        section {
+            padding: 1%;
+            order:2;
+            flex-basis:100%;
+            height: 100%;
+        }
+
+        aside.right {
+            padding: 1%;
+            order:3;
+            flex-basis:100%;
             height: 100%;
         }
 
@@ -38,10 +52,31 @@
         }
 
         main {
-            display: flex;
-            width: 100%;
-            height: auto;
-            margin: 10px;
+            padding: 1%;
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction:row;
+            justify-content:flex-start;
+            align-items:stretch;
+        }
+
+        @media screen and (min-width:600px) {
+            main {
+                flex-wrap:nowrap;
+            }
+
+            aside.left {
+                flex-basis:20%;
+                order:1;
+            }
+            section {
+                flex-basis:60%;
+                order:2;
+            }
+            aside.right {
+                flex-basis:20%;
+                order:3;
+            }
         }
     </style>
 

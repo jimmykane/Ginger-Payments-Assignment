@@ -4,7 +4,7 @@
 
 <main data-ng-controller="mainController">
 
-    <aside>
+    <aside class="left">
 
         <div class="panel panel-info">
 
@@ -31,6 +31,48 @@
             </div>
         </div>
 
+    </aside>
+
+    <section>
+
+        <div class="panel panel-info">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Payments</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <table class="table-condensed table-hover" data-ng-if="payments.length > 1">
+
+                    <tr>
+                        <th>id</th>
+                        <th>Method</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th>Merchant</th>
+                    </tr>
+
+                    <tr data-ng-repeat="payment in payments | filter:search">
+                        <th>{{payment.id}}</th>
+                        <th>{{payment.method}}</th>
+                        <th>{{payment.amount}}</th>
+                        <th>{{payment.currency}}</th>
+                        <th>{{payment.created}}</th>
+                        <th>{{payment.status}}</th>
+                        <th>{{payment.merchant}}</th>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+
+    </section>
+
+    <aside class="right">
         <div class="panel panel-primary">
 
             <div class="panel-heading">
@@ -82,46 +124,6 @@
 
             </div>
         </div>
-
     </aside>
-
-    <section>
-
-        <div class="panel panel-info" data-ng-if="payments.length > 1">
-
-            <div class="panel-heading">
-                <h3 class="panel-title">Payments</h3>
-            </div>
-
-            <div class="panel-body">
-
-                <table class="table-condensed table-hover">
-
-                    <tr>
-                        <th>id</th>
-                        <th>Method</th>
-                        <th>Amount</th>
-                        <th>Currency</th>
-                        <th>Created</th>
-                        <th>Status</th>
-                        <th>Merchant</th>
-                    </tr>
-
-                    <tr data-ng-repeat="payment in payments | filter:search">
-                        <th>{{payment.id}}</th>
-                        <th>{{payment.method}}</th>
-                        <th>{{payment.amount}}</th>
-                        <th>{{payment.currency}}</th>
-                        <th>{{payment.created}}</th>
-                        <th>{{payment.status}}</th>
-                        <th>{{payment.merchant}}</th>
-                    </tr>
-
-                </table>
-
-            </div>
-        </div>
-
-    </section>
 
 </main>
