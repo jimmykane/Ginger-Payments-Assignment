@@ -5,7 +5,7 @@ angular.module('app.services').factory('dataService', function ($http, $q) {
     var dataService = {};
 
     // @todo add the correct params
-    dataService.getData = function(limit) {
+    dataService.getPayments = function(limit) {
         limit = limit || 20;
         return $http({
             method: 'GET',
